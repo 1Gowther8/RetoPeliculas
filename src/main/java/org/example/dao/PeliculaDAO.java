@@ -9,11 +9,16 @@ import java.util.List;
 
 public class PeliculaDAO implements DAO<Pelicula> {
 
-    private Connection connection;
+    private final Connection connection;
 
     public PeliculaDAO(Connection connection) {
         this.connection = connection;
     }
+
+
+
+
+
 
     @Override
     public List<Pelicula> findAll() {
@@ -24,41 +29,6 @@ public class PeliculaDAO implements DAO<Pelicula> {
 
 
 
-    public Pelicula filtrarPorAños(int año1,int año2){
-        Pelicula Pelicula = null;
-        try(PreparedStatement ps = connection.prepareStatement("SELECT * FROM pelicula WHERE año BETWEEN ? AND ?")) {
-            ps.setInt(1, año1);
-            ps.setInt(2, año2);
-            var resultSet = ps.executeQuery();
-            if(resultSet.next()) {
-                Pelicula = new Pelicula(
-                 resultSet.getInt(1),
-                    resultSet.getString(2),
-                        resultSet.getString(4),
-                    resultSet.getInt(3)
-                );
-                System.out.println(Pelicula);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return Pelicula;
-
-
-    }
-
-    public Pelicula contarPeliculas(){
-        Pelicula Pelicula = null;
-        try(PreparedStatement ps = connection.prepareStatement("SELECT COUNT(*) FROM pelicula")) {
-            var resultSet = ps.executeQuery();
-            if(resultSet.next()) {
-                System.out.println("El numero de peliculas es: "+resultSet.getInt(1));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return Pelicula;
-    }
 
 
     @Override

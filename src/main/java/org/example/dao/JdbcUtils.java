@@ -10,7 +10,7 @@ public class JdbcUtils {
     static {
         String url = "jdbc:mysql://localhost:3306/peliculas";
         String user = "root";
-        String password = "cESUROFFICE23"; /*System.getenv("MYSQL_ROOT_PASSWORD");*/
+        String password = System.getenv("MYSQL_ROOT_PASSWORD");
         try{
             connection = DriverManager.getConnection(url, user, password);
         }catch (SQLException e){

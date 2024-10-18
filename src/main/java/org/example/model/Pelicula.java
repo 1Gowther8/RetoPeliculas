@@ -13,6 +13,7 @@ public class Pelicula implements Serializable {
     private String genero;
     private int año;
     private String descripcion;
+    private String director;
 
 
     public Pelicula(String titulo, int año, String genero) {
@@ -20,6 +21,8 @@ public class Pelicula implements Serializable {
         this.año = año;
         this.genero = genero;
     }
+
+
 
     @Override
     public String toString() {
