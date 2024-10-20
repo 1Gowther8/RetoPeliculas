@@ -22,6 +22,9 @@ public class Pelicula implements Serializable {
         this.genero = genero;
     }
 
+    public Pelicula() {
+    }
+
 
 
     @Override

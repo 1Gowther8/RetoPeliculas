@@ -1,6 +1,7 @@
 package org.example;
 
 import com.mysql.cj.log.Log;
+import org.example.dao.CopiaDAO;
 import org.example.dao.JdbcUtils;
 import org.example.dao.PeliculaDAO;
 import org.example.dao.UsuarioDao;
@@ -12,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-
+        //System.out.println(new CopiaDAO(JdbcUtils.getConnection()).imprimirCopias("1"));
         Login login = new Login();
         login.setVisible(true);
 
